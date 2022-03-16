@@ -88,7 +88,8 @@ function handleCardClick(event) {
           }
         }
         if (youWin) {
-          console.log("You win!!!");
+          // console.log("Game Over! Click Refresh to replay.");
+          // alert("Game Over! Click OK and then click Refresh to replay.");
         }
       }
       else if (cardsTurned === 2 ) {
