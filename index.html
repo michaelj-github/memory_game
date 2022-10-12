@@ -2,17 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Memory Game!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <title>Concentration</title>
   </head>
   <body>
-    <h1>Memory Game!</h1>
-    <h3>Click a card to turn it over and reveal the color.</h3>
-    <h3>Click another card to turn it over and see if it matches.</h3>
-    <h3>Match all the cards to finish the game.</h3>
-    <h3>Reload this page to start over or start a new game.</h3>
-    <div id="game">
-    </div>
+    <p>
+      <button id="newGame-button" class="newGame-button">New Game</button>
+    </p>
+    <!-- <p>
+      <input class="game-range" type="range" min="4" max="104" />
+    </p> -->
+    <section id="game-display"></section>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
