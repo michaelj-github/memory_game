@@ -28,7 +28,7 @@ async function getDeck() {
 
 function shuffleDeck(array) {
   let counter = array.length;
-  console.log("array.length = ", array.length);
+  //   console.log("array.length = ", array.length);
   // While there are elements in the array
   while (counter > 0) {
     // Pick a random index
@@ -64,7 +64,7 @@ const createGameLayout = (cards) => {
 };
 
 const handelRestartButtonClick = () => {
-  console.log("button clicked");
+  //   console.log("button clicked");
   cardsForTheGame.length = 0;
   const cardsDisplayed = document.querySelectorAll(".display-card");
   for (e of cardsDisplayed) {
@@ -135,9 +135,9 @@ const handelCardClick = (event) => {
 };
 
 async function playTheGame() {
-  console.log("Play the game");
+  //   console.log("Play the game");
   await getDeck();
-  console.log("cardsForTheGame = ", cardsForTheGame);
+  //   console.log("cardsForTheGame = ", cardsForTheGame);
   const shuffledCards = shuffleDeck(cardsForTheGame);
   createGameLayout(shuffledCards);
 }
