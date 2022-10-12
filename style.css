@@ -43,3 +43,13 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
 }
+
+.display-card {
+  max-width: 25%;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  object-fit: contain;
+}
