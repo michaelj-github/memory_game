@@ -7,7 +7,13 @@ const cardsTurnedArray = []; // array to keep track of the state of each turned 
 const baseURL = "https://deckofcardsapi.com/api/deck/";
 
 const shuffle = "new/shuffle/";
-const draw = "draw/?count=6";
+const draw = "draw/?count=8";
+
+const resizeGame = () => {
+  document.getElementById("main").style.width = `${
+    window.innerHeight * 0.7 - 65
+  }px`;
+};
 
 async function getDeck() {
   try {
@@ -28,7 +34,6 @@ async function getDeck() {
 
 function shuffleDeck(array) {
   let counter = array.length;
-  //   console.log("array.length = ", array.length);
   // While there are elements in the array
   while (counter > 0) {
     // Pick a random index
@@ -45,6 +50,9 @@ function shuffleDeck(array) {
 }
 
 const createGameLayout = (cards) => {
+  document.getElementById("main").style.width = `${
+    window.innerHeight * 0.7 - 65
+  }px`;
   let theCard = 0;
   for (e of cards) {
     const newCardDiv = document.createElement("div");
@@ -64,11 +72,9 @@ const createGameLayout = (cards) => {
 };
 
 const handelRestartButtonClick = () => {
-  //   console.log("button clicked");
   cardsForTheGame.length = 0;
   const cardsDisplayed = document.querySelectorAll(".display-card");
   for (e of cardsDisplayed) {
-    // e.parentElement.remove();
     e.remove();
   }
 
@@ -135,9 +141,7 @@ const handelCardClick = (event) => {
 };
 
 async function playTheGame() {
-  //   console.log("Play the game");
   await getDeck();
-  //   console.log("cardsForTheGame = ", cardsForTheGame);
   const shuffledCards = shuffleDeck(cardsForTheGame);
   createGameLayout(shuffledCards);
 }

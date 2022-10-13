@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="style.css" />
     <title>Concentration</title>
   </head>
-  <body>
-    <p>
-      <button id="newGame-button" class="newGame-button">New Game</button>
-    </p>
-    <!-- <p>
-      <input class="game-range" type="range" min="4" max="104" />
-    </p> -->
-    <section id="game-display"></section>
+  <body onresize="resizeGame()">
+    <main id="main" class="main">
+      <p>
+        <button id="newGame-button" class="newGame-button">New Game</button>
+      </p>
+      <section id="game-display"></section>
+    </main>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <script src="app.js"></script>
   </body>
