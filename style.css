@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -17,6 +18,7 @@ button {
   border-radius: 8px;
   border: none;
   margin: 10px auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button:hover {
@@ -49,4 +51,30 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.gameHeader {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.gameScore {
+  width: 100px;
+  margin: 0 10px;
+  color: white;
+}
+
+.bestScore {
+  animation: 0.5s newBestScore linear;
+  animation-iteration-count: 3;
+}
+
+@keyframes newBestScore {
+  50% {
+    transform: scale(1.5);
+  }
 }

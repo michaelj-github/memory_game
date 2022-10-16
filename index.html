@@ -9,9 +9,19 @@
   </head>
   <body onresize="resizeGame()">
     <main id="main" class="main">
-      <p>
-        <button id="newGame-button" class="newGame-button">New Game</button>
-      </p>
+      <div class="gameHeader">
+        <div class="gameScore">
+          <p>Score: <span id="score"></span></p>
+        </div>
+        <div class="gameButton">
+          <p>
+            <button id="newGame-button" class="newGame-button">New Game</button>
+          </p>
+        </div>
+        <div id="theBestScore" class="gameScore">
+          <p>Best Score: <span id="bestScore"></span></p>
+        </div>
+      </div>
       <section id="game-display"></section>
     </main>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>

@@ -4,6 +4,7 @@ const cardsForTheGame = [];
 let cardsTurned = 0; // keep track of how many cards have been turned over, can't be more than two
 const cardsArray = []; // array to keep track of the state of each card
 const cardsTurnedArray = []; // array to keep track of the state of each turned card
+let cardsTouched = 0;
 const baseURL = "https://deckofcardsapi.com/api/deck/";
 
 const shuffle = "new/shuffle/";
@@ -45,7 +46,6 @@ function shuffleDeck(array) {
     array[counter] = array[index];
     array[index] = temp;
   }
-
   return array;
 }
 
@@ -67,6 +67,9 @@ const createGameLayout = (cards) => {
     gameContainer.append(newCardDiv);
     theCard++;
   }
+  document.getElementById("score").innerHTML = `${cardsTouched}`;
+  const theBestScore = sessionStorage.getItem("bestScore") || 0;
+  document.getElementById("bestScore").innerHTML = `${theBestScore}`;
   const restartButton = document.getElementById("newGame-button");
   restartButton.addEventListener("click", handelRestartButtonClick);
 };
@@ -77,18 +80,19 @@ const handelRestartButtonClick = () => {
   for (e of cardsDisplayed) {
     e.remove();
   }
-
+  cardsTouched = 0;
+  document.getElementById("theBestScore").classList.remove("bestScore");
   playTheGame();
 };
 
 const handelCardClick = (event) => {
   const divId = event.target.parentElement.getAttribute("id");
   if (cardsArray[divId] === false) {
+    cardsTouched++;
+    document.getElementById("score").innerHTML = `${cardsTouched}`;
     cardsTurned++;
     if (cardsTurned <= 2) {
-      const divColor = event.target.classList.value;
       const divImage = cardsForTheGame[divId];
-      document.getElementById(divId).style.backgroundColor = divColor;
       const cardImage = document.getElementById(divId).firstChild;
       let cardImageSrc = cardImage.getAttribute("src");
       cardImageSrc = divImage;
@@ -113,6 +117,17 @@ const handelCardClick = (event) => {
             }
           }
           if (youWin) {
+            const theBestScore =
+              parseInt(sessionStorage.getItem("bestScore")) || 0;
+            if (cardsTouched < theBestScore || theBestScore === 0) {
+              document.getElementById(
+                "bestScore"
+              ).innerHTML = `${cardsTouched}`;
+              document
+                .getElementById("theBestScore")
+                .classList.add("bestScore");
+              sessionStorage.setItem("bestScore", cardsTouched);
+            }
           }
         } else {
           // wait 1 second

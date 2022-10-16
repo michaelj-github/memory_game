@@ -1,17 +1,20 @@
 # Concentration
 
-- Originally done as the 'memory game' exercise for Springboard
-- Updating with playing card images, front and back, and a restart button
-- gets cards from the deckofcardsapi API
+- Originally done as the 'memory game' exercise for the Springboard Software Engineering Program
+- Updated with playing card images, front and back, a restart button, game score, and best score for the session
+- Gets a random selection cards from the deckofcardsapi API
 
 ## Solution notes
 
-uses:
+### Tech Stack
 
 - HTML
-- CSS
+- CSS with some animation for a new best score
 - JavaScript
-- Axios
 - deckofcardsapi API
+- Axios to call the API
+- sessionStorage to hold the best score for this session, resets to zero when the window is closed
 
-Open the index.html file in a browser
+### Execution
+
+    Open the index.html file in a browser
